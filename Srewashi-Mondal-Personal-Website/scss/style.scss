@@ -642,45 +642,73 @@ h1, h2, h3, h4, h5,
 
 
 //FTCO ABOUT
-.ftco-about{
-	.img-about{
-		width: 100%;
-		z-index: 0;
+.ftco-about {
+	display: flex; /* Align items horizontally */
+	align-items: center; /* Vertically center items */
+	justify-content: space-between; /* Space between image and text */
+
+	.img-about {
+		//flex: 1; /* Allow image container to take up available space */
+		display: flex; /* Flexbox for internal alignment */
+		//align-items: center; /* Center image vertically */
+		//justify-content: center; /* Center image horizontally */
 		position: relative;
-		.img{
-			display: block;
-			width: 100%;
-			position: relative;
-			z-index: 1;
+
+		.img {
+			width: 100%; /* Ensure image container takes full width */
+			display: block; /* Block-level for proper layout */
+			position: relative; /* Relative positioning for z-index */
+			z-index: 1; /* Ensure it is above other content */
+			//margin-top: -10px;
+			//overflow: hidden;
+			background-size: 60%; /* Adjust this value as needed */
+			margin-top: -10px;
+			background-position: top;
+		}
+
+		img {
+			max-width: 50%; /* Ensure image does not exceed container width */
+			height: auto; /* Maintain aspect ratio */
 		}
 	}
-	ul.about-info{
-		display: inline-block;
+
+	ul.about-info {
+		flex: 1; /* Allow text container to take up available space */
 		padding: 0;
 		margin: 0;
-		width: 100%;
-		li{
+		margin-left: 20px; /* Space between image and text */
+		box-sizing: border-box; /* Include padding in width */
+
+		li {
 			list-style: none;
 			margin-bottom: 10px;
-			span{
-				width: calc(100% - 130px);
-				&:first-child{
+
+			span {
+				display: block; /* Make spans block-level for proper layout */
+				width: calc(100% - 130px); /* Adjust width if needed */
+
+				&:first-child {
 					font-weight: 600;
 					color: $black;
-					width: 130px;
+					width: 130px; /* Fixed width for label */
 				}
 			}
 		}
 	}
-	.counter-wrap{
-		.text{
-			p{
+}
+
+
+	.counter-wrap {
+		.text {
+			p {
 				font-size: 20px;
-				span{
+
+				span {
 					font-weight: 400;
 					color: $black;
 				}
-				span.number{
+
+				span.number {
 					font-weight: 600;
 					color: $primary;
 				}
@@ -688,6 +716,8 @@ h1, h2, h3, h4, h5,
 		}
 	}
 }
+
+
 
 
 #navi {
@@ -743,7 +773,7 @@ h1, h2, h3, h4, h5,
 
 .resume-wrap{
 	width: 100%;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	border-bottom: 1px solid rgba(0,0,0,.1);
 	padding-bottom: 10px;
 	.icon{
